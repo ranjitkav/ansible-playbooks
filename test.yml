@@ -1,0 +1,8 @@
+ - name: test script
+   hosts: myown
+   gather_facts: yes
+   connection: local
+   tasks: 
+   - action: ping
+
+

@@ -1,0 +1,11 @@
+- name: execute scripts on bgtvops
+  hosts: bgtvops
+  gather_facts: yes
+  tasks:
+  - name: shell and expect scripts
+    shell: ./ibcmulticmd.sh
+    args:
+      chdir: ibcscripts
+    register: myoutput
+
+  - debug: var=myoutput.stdout_lines

@@ -1,0 +1,16 @@
+ - name: test script
+   hosts: myown
+   become: yes
+   gather_facts: yes
+   connection: local
+   tasks: 
+   - name: execute a set of shell commands
+     shell: |
+        apt-get update
+        docker login -u ranjitkav -p Chinnu@123
+        docker run ranjitkav/my-repo/my-image
+     register: out
+
+   - debug: var=out.stdout_lines
+
+
